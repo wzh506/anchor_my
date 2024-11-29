@@ -1,0 +1,7 @@
+nohup bash local_train.sh sparse4dv3_temporal_r50_1x8_bs6_256x704 > train1.log 2>&1 &
+pip install mmcv-full==1.4.0 -f https://download.openmmlab.com/mmcv/dist/cu117/torch1.13.0/index.html
+scp -r  /data/wangzhaohui/github/Sparse4Dv3-main/new  lbs@192.168.1.235:/new-disk/wangzhaohui/MUTR3D/mmcv
+#上面这个命令是发送。。
+
+2.tmux使用指南
+tmux new -s <session-name>

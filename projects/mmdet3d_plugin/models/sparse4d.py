@@ -73,8 +73,7 @@ class Sparse4D(BaseDetector):
             feature_maps = self.img_backbone(img, num_cams, metas=metas)
         else:
             feature_maps = self.img_backbone(img)
-        if self.img_neck is not None:
-            feature_maps = list(self.img_neck(feature_maps))
+        if self.img_neck is not No            feature_maps = list(self.img_neck(feature_maps))
         for i, feat in enumerate(feature_maps):
             feature_maps[i] = torch.reshape(
                 feat, (bs, num_cams) + feat.shape[1:]

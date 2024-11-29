@@ -400,11 +400,24 @@ class Sparse4DHead(BaseModule):
         self.instance_bank.cache(
             instance_feature, anchor, cls, metas, feature_maps
         )
-        if not self.training:
-            instance_id = self.instance_bank.get_instance_id(
-                cls, anchor, self.decoder.score_threshold
-            )
-            output["instance_id"] = instance_id
+
+
+
+
+        # 取代原来的tracking部分
+        # if not self.training:
+        #     instance_id = self.instance_bank.get_instance_id(
+        #         cls, anchor, self.decoder.score_threshold
+        #     )
+        #     output["instance_id"] = instance_id
+        # 就抄PF-track
+        img_feats = self.mlp(prediction)#问题：prediction数量并不确定
+        
+
+
+        
+
+
         return output
 
     @force_fp32(apply_to=("model_outs"))
